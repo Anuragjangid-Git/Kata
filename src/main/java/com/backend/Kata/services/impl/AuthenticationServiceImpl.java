@@ -30,6 +30,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final JWTService jwtService;
 
     public User signUp(SignUpRequest signUpRequest) {
+        // Check if user already exists
+        if (userRepository.findFirstByEmail(signUpRequest.getEmail()).isPresent()) {
+            throw new IllegalArgumentException("Email already exists");
+        }
+
         User user = new User();
 
         user.setEmail(signUpRequest.getEmail());
@@ -43,7 +48,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public JwtAuthenticationResponse signIn(SignInRequest signInRequest) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(signInRequest.getEmail(),
                 signInRequest.getPassword()));
-        var user = userRepository.findByEmail(signInRequest.getEmail()).orElseThrow(() -> new IllegalArgumentException("Email or Password is wrong"));
+        var user = userRepository.findFirstByEmail(signInRequest.getEmail()).orElseThrow(() -> new IllegalArgumentException("Email or Password is wrong"));
         var token = jwtService.generateToken(user);
         var refreshToken = jwtService.generateRefreshToken(new HashMap<>(), user);
         JwtAuthenticationResponse jwtAuthenticationResponse = new JwtAuthenticationResponse();
@@ -57,7 +62,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     public JwtAuthenticationResponse refreshToken(RefreshTokenRequest refreshTokenRequest) {
         String userEmail = jwtService.extractUserName(refreshTokenRequest.getToken());
-        User user = userRepository.findByEmail(userEmail).orElseThrow();
+        User user = userRepository.findFirstByEmail(userEmail).orElseThrow();
         if (jwtService.isTokenValid(refreshTokenRequest.getToken(), user)) {
             var jwt = jwtService.generateToken(user);
 
