@@ -8,14 +8,20 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('user');
     const token = localStorage.getItem('token');
     
-    if (storedUser && token) {
+    if (token) {
       try {
-        setUser(JSON.parse(storedUser));
+        // Always extract user info from token to ensure it's up to date
+        const userData = JSON.parse(atob(token.split('.')[1]));
+        const userInfo = {
+          email: userData.sub,
+          role: userData.authorities?.[0] || 'USER',
+        };
+        setUser(userInfo);
+        localStorage.setItem('user', JSON.stringify(userInfo));
       } catch (error) {
-        console.error('Error parsing user data:', error);
+        console.error('Error parsing token:', error);
         localStorage.removeItem('user');
         localStorage.removeItem('token');
       }
