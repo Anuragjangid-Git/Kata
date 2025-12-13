@@ -11,6 +11,7 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -34,10 +35,18 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http){
         http.csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests(request ->
-                request.requestMatchers("/api/v1/auth/**")
+                request.requestMatchers("/api/v1/auth/**", "/api/auth/**")
                         .permitAll()
-                        .requestMatchers("/api/v1/admin").hasAllAuthorities(Role.ADMIN.name())
-                        .requestMatchers("/api/v1/user").hasAllAuthorities(Role.USER.name())
+                        // Admin-only endpoints - must come before general /api/sweets/** matcher
+                        .requestMatchers(HttpMethod.DELETE, "/api/sweets/**")
+                        .hasAuthority(Role.ADMIN.name())
+                        .requestMatchers("/api/sweets/**/restock")
+                        .hasAuthority(Role.ADMIN.name())
+                        // All other sweets endpoints require authentication
+                        .requestMatchers("/api/sweets/**")
+                        .authenticated()
+                        .requestMatchers("/api/v1/admin").hasAuthority(Role.ADMIN.name())
+                        .requestMatchers("/api/v1/user").hasAuthority(Role.USER.name())
                         .anyRequest().authenticated()).sessionManagement(
                                 manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())
