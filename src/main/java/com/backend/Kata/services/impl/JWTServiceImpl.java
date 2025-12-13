@@ -21,7 +21,7 @@ public class JWTServiceImpl implements JWTService {
 
     @Override
     public String extractUserName(String token) {
-        return "";
+        return extractUsername(token);
     }
 
     public String generateToken(UserDetails userDetails) {
