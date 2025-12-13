@@ -40,7 +40,7 @@ public class SecurityConfiguration {
                         // Admin-only endpoints - must come before general /api/sweets/** matcher
                         .requestMatchers(HttpMethod.DELETE, "/api/sweets/**")
                         .hasAuthority(Role.ADMIN.name())
-                        .requestMatchers("/api/sweets/**/restock")
+                        .requestMatchers("/api/sweets/*/restock")
                         .hasAuthority(Role.ADMIN.name())
                         // All other sweets endpoints require authentication
                         .requestMatchers("/api/sweets/**")
