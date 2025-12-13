@@ -1,0 +1,24 @@
+.purchase-section {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.purchase-section input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.purchase-section button {
+  white-space: nowrap;
+}
+
+.category {
+  color: #666;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
