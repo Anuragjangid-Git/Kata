@@ -16,31 +16,32 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/dashboard" className="navbar-brand">
-          🍬 Sweet Shop
+          <span style={{ fontSize: '32px', marginRight: '8px' }}>🍬</span>
+          Sweet Shop
         </Link>
         <div className="navbar-menu">
           {user ? (
             <>
               <Link to="/dashboard" className="navbar-link">
-                Dashboard
+                🏠 Dashboard
               </Link>
               {isAdmin() && (
                 <Link to="/admin" className="navbar-link">
-                  Admin Panel
+                  🎛️ Admin Panel
                 </Link>
               )}
-              <span className="navbar-user">Welcome, {user.email}</span>
+              <span className="navbar-user">👤 {user.email}</span>
               <button onClick={handleLogout} className="btn btn-secondary">
-                Logout
+                🚪 Logout
               </button>
             </>
           ) : (
             <>
               <Link to="/login" className="navbar-link">
-                Login
+                🔑 Login
               </Link>
               <Link to="/register" className="navbar-link">
-                Register
+                ✨ Register
               </Link>
             </>
           )}

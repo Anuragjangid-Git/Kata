@@ -36,7 +36,10 @@ const Register = () => {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h2>Register</h2>
+        <div style={{ textAlign: 'center', marginBottom: '20px', fontSize: '64px' }}>
+          🎉
+        </div>
+        <h2>Join Sweet Shop!</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Name</label>
@@ -68,8 +71,8 @@ const Register = () => {
           </div>
           {error && <div className="error">{error}</div>}
           {success && <div className="success">{success}</div>}
-          <button type="submit" className="btn btn-primary" disabled={loading}>
-            {loading ? 'Registering...' : 'Register'}
+          <button type="submit" className="btn btn-primary" disabled={loading} style={{ width: '100%', marginTop: '10px' }}>
+            {loading ? '⏳ Registering...' : '✨ Create Account'}
           </button>
         </form>
         <p className="auth-link">

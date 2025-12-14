@@ -7,32 +7,56 @@
 }
 
 .auth-card {
-  background: white;
-  border-radius: 8px;
-  padding: 40px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #ffffff 0%, #fff9f5 100%);
+  border-radius: 24px;
+  padding: 50px 40px;
+  box-shadow: 0 12px 40px rgba(255, 105, 180, 0.25);
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
+  border: 3px solid rgba(255, 182, 193, 0.5);
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .auth-card h2 {
-  margin-bottom: 30px;
+  margin-bottom: 35px;
   text-align: center;
-  color: #333;
+  color: #5a3d2b;
+  font-size: 32px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .auth-link {
   text-align: center;
-  margin-top: 20px;
-  color: #666;
+  margin-top: 25px;
+  color: #7a5a4a;
+  font-size: 15px;
 }
 
 .auth-link a {
-  color: #007bff;
+  color: #ff6b9d;
   text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .auth-link a:hover {
+  color: #ff5a8a;
   text-decoration: underline;
+  transform: scale(1.05);
 }
 

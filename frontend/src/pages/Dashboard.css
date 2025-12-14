@@ -1,24 +1,53 @@
 .purchase-section {
   display: flex;
-  gap: 10px;
-  margin-top: 15px;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px dashed #ffd6e8;
+  position: relative;
+  z-index: 10;
 }
 
 .purchase-section input {
   flex: 1;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 12px 16px;
+  border: 2px solid #ffd6e8;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background: #fff;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.purchase-section input:focus {
+  outline: none;
+  border-color: #ff6b9d;
+  box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.1);
 }
 
 .purchase-section button {
   white-space: nowrap;
+  padding: 12px 24px;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .category {
-  color: #666;
-  font-size: 14px;
+  color: #ff6b9d;
+  font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff5f9 0%, #ffeef8 100%);
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  margin: 8px 0;
+  border: 2px solid rgba(255, 107, 157, 0.2);
 }
 

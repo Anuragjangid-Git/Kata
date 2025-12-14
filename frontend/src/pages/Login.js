@@ -30,7 +30,10 @@ const Login = () => {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h2>Login</h2>
+        <div style={{ textAlign: 'center', marginBottom: '20px', fontSize: '64px' }}>
+          🍬
+        </div>
+        <h2>Welcome Back!</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Email</label>
@@ -51,8 +54,8 @@ const Login = () => {
             />
           </div>
           {error && <div className="error">{error}</div>}
-          <button type="submit" className="btn btn-primary" disabled={loading}>
-            {loading ? 'Logging in...' : 'Login'}
+          <button type="submit" className="btn btn-primary" disabled={loading} style={{ width: '100%', marginTop: '10px' }}>
+            {loading ? '⏳ Logging in...' : '🔑 Login'}
           </button>
         </form>
         <p className="auth-link">

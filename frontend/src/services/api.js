@@ -46,7 +46,7 @@ export const sweetsAPI = {
   getById: (id) => api.get(`/sweets/${id}`),
   create: (data) => api.post('/sweets', data),
   update: (id, data) => api.put(`/sweets/${id}`, data),
-  delete: (id) => api.delete(`/sweets/${id}`),
+  delete: (id) => api.delete(`/sweets/${id}`).then(() => ({ success: true })),
   search: (params) => api.get('/sweets/search', { params }),
   purchase: (id, data) => api.post(`/sweets/${id}/purchase`, data),
   restock: (id, data) => api.post(`/sweets/${id}/restock`, data),
