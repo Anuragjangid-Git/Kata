@@ -39,6 +39,35 @@ A full-stack application for managing a sweet shop inventory with user authentic
 - **Language**: JavaScript
 - **HTTP Client**: Axios/Fetch API
 
+###📸 Application Screenshots
+
+Below are some screenshots showcasing the key features and user interfaces of the Sweet Shop Management System.
+
+🔐 Login Page
+<img width="1915" height="1051" alt="Screenshot 2025-12-14 140853" src="https://github.com/user-attachments/assets/dd619f35-8ed2-49d0-947b-a9dde327744f" />
+
+This page allows users to securely log in using their email and password.
+
+🏠 Home / Dashboard
+<img width="1900" height="1032" alt="Screenshot 2025-12-14 140805" src="https://github.com/user-attachments/assets/d961cfef-edb6-44ca-a463-0c95f4609b37" />
+
+The main dashboard where users can browse sweets, search, filter by category and price, and purchase items.
+
+🛠️ Admin Panel
+<img width="1898" height="1026" alt="Screenshot 2025-12-14 140817" src="https://github.com/user-attachments/assets/f8e3491d-c181-49a6-88ec-19e2e1ce78e9" />
+
+Accessible only to admins. This panel allows managing the sweet inventory including edit, restock, and delete operations.
+
+✏️ Edit Sweet Page
+<img width="1897" height="1030" alt="Screenshot 2025-12-14 140828" src="https://github.com/user-attachments/assets/38e1e089-8dcf-4be6-9250-fed8091299bf" />
+
+A modal/form used by admins to update sweet details such as name, category, price, and quantity.
+
+➕ Add New Sweet Page
+<img width="1898" height="1040" alt="Screenshot 2025-12-14 140840" src="https://github.com/user-attachments/assets/5ebbb191-76f2-4ded-aafe-fea8f1b92e7d" />
+
+Admins can add new sweets to the inventory using this form.
+
 ## 📦 Installation & Setup
 
 ### Backend Setup
