@@ -197,11 +197,6 @@ Throughout this project, I utilized several AI tools to enhance my development w
    - Helped with writing repetitive code patterns
    - Suggested improvements for code structure
 
-3. **Cursor AI**
-   - Used for code analysis and refactoring suggestions
-   - Helped identify potential bugs and security issues
-   - Assisted in understanding complex Spring Security configurations
-
 ### How AI Was Used
 
 #### Backend Development
