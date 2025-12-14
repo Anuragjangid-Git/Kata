@@ -137,7 +137,7 @@ const Dashboard = () => {
             <div key={sweet.id} className="sweet-card">
               <h3>{sweet.name}</h3>
               <p className="category">{sweet.category}</p>
-              <p className="price">${sweet.price.toFixed(2)}</p>
+              <p className="price">₹{sweet.price.toFixed(2)}</p>
               <p
                 className={`quantity ${
                   sweet.quantity === 0

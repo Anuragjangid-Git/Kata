@@ -140,7 +140,7 @@ const AdminPanel = () => {
             <div key={sweet.id} className="sweet-card admin-card">
               <h3>{sweet.name}</h3>
               <p className="category">{sweet.category}</p>
-              <p className="price">${sweet.price.toFixed(2)}</p>
+              <p className="price">₹{sweet.price.toFixed(2)}</p>
               <p className="quantity">Stock: {sweet.quantity}</p>
               <div className="admin-actions">
                 <button
